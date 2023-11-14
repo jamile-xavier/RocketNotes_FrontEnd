@@ -1,4 +1,6 @@
 import { Container, Form, Background } from "./styles";
+
+// hook para criar estado
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Input } from "../../components/Input";
@@ -45,6 +47,7 @@ export function SignUp() {
           placeholder="Nome"
           type="text"
           icon={FiUser}
+          //toda vez que o valor do input muda ela dispara um evento
           onChange={(e) => setName(e.target.value)}
         />
         <Input

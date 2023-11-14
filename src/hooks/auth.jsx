@@ -44,7 +44,7 @@ async function updateProfile({ user, avatarFile }) {
     }
 
     await api.put("/users", user);
-    localStorage.setItem("@rocketnotes: user", JSON.stringify(user));
+    localStorage.setItem("@rocketnotes:user", JSON.stringify(user));
     setData({ user, token: data.token });
     alert("Perfil atualizado!");
   } catch (error) {
