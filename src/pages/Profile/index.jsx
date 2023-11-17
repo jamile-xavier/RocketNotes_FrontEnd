@@ -20,7 +20,7 @@ export function Profile() {
   const avatarUrl = user.avatar
     ? `${api.defaults.baseURL}/files/${user.avatar}`
     : avatarPlaceholder;
-  const [avatar, setAvatar] = useState(user.avatar);
+  const [avatar, setAvatar] = useState(avatarUrl);
   const [avatarFile, setAvatarFile] = useState(null);
 
   const navigate = useNavigate();
@@ -32,6 +32,8 @@ export function Profile() {
       password: passwordNew,
       old_password: passwordOld,
     };
+
+    //Object assign: permite a alteração da foto ou que a foto permaneça em caso de atualização de outros dados.
     const userUpdated = Object.assign(user, updated);
 
     await updateProfile({ user: userUpdated, avatarFile });

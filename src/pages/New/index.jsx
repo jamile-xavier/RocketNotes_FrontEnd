@@ -14,6 +14,9 @@ export function New() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
+  const [links, setLinks] = useState([]);
+  const [newLink, setNewLink] = useState("");
+
   const [tags, setTags] = useState([]);
   const [newTag, setNewTag] = useState("");
 
@@ -30,10 +33,16 @@ export function New() {
 
   function handleAddTag() {
     setTags((prevState) => [...prevState, newTag]);
+    // (prevState) => [prevState, newTag]
+    //["react", "nodejs"] => [["react", "nodejs"], "express"]
+    //para não ficar um array dentro de outro array, utilizamos o ...
+    //(prevState) => [...prevState, newTag]
+    // ["react", "nodejs"] => ["react", "nodejs", "express"]]
+
     setNewTag("");
   }
 
-  function handleRemoveTag() {
+  function handleRemoveTag(deleted) {
     setTags((prevState) => prevState.filter((tag) => tag !== deleted));
   }
 
@@ -87,7 +96,7 @@ export function New() {
             onChange={(e) => setDescription(e.target.value)}
           />
           <Section title="Links úteis">
-            {links.map((link) => (
+            {links.map((link, index) => (
               <NoteItem
                 key={String(index)}
                 value={link}
@@ -105,7 +114,7 @@ export function New() {
           <Section title="Marcadores">
             <div className="tags">
               {tags.map((tag, index) => (
-                <Markers
+                <NoteItem
                   key={String(index)}
                   value={tag}
                   onClick={() => handleRemoveTag(tag)}
