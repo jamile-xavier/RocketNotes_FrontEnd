@@ -46,7 +46,7 @@ Rocketnotes
 Para utilizar o projeto em sua máquina será necessário possuir as seguintes ferramentas:
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). Você precisará também de um editor como o [VSCode](https://code.visualstudio.com/).
 
-# Rodando o Back End
+# Rodando o Front End
 
 ```bash
 # Clone este repositório
@@ -55,20 +55,14 @@ $ git clone https://github.com/jamile-xavier/RocketNotes_FrontEnd
 # Acesse a pasta do projeto no terminal/cmd
 $ cd RocketNotes_FrontEnd
 
-# Modifique o arquivo .env.example para .env e inclua uma porta e um secret para utilização do jwt no projeto.
-  AUTH_SECRET=
-  PORT=
-
 # Instale as dependências
 $ npm i
 
-# Faça execução das migrations
-$ npm run migrate
 
 # Execute a aplicação no modo de desenvolvimento
 $ npm run dev
 
-# Aparecerá a mensagem Server is running on port <Número da porta>.
+# Aparecerá a mensagem -> LocaL: http://localHost:<Número da Porta>. Utilize esse link para acesso.
 
 ```
 
